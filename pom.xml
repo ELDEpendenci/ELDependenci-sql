@@ -9,7 +9,7 @@
     <packaging>pom</packaging>
     <version>1.0</version>
     <modules>
-        <module>APIModule</module>
+        <module>eld-sql</module>
         <module>PluginModule</module>
     </modules>
 

@@ -6,19 +6,24 @@ import javax.sql.DataSource;
 import java.sql.Connection;
 import java.sql.SQLException;
 
+/**
+ * SQL 服務
+ */
 public interface SQLDataSource {
+
     /**
      * @return SQL連接
      * @throws SQLException SQL Error
      */
     Connection getConnection() throws SQLException;
+
     /**
      * @return 連接池
      */
     DataSource getDataSource();
+
     /**
      * @return  sql2o 方法
-     * @throws SQLException SQL Error
      */
-    Sql2o getSql2o() throws SQLException;
+    Sql2o getSql2o();
 }
