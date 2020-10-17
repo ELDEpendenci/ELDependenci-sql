@@ -10,14 +10,9 @@
     <version>1.0</version>
     <modules>
         <module>eld-sql</module>
-        <module>PluginModule</module>
+        <module>eld-sql-plugin</module>
     </modules>
 
-    <parent>
-        <groupId>org.sql2o</groupId>
-        <artifactId>sql2o-parent</artifactId>
-        <version>1.5.4</version>
-    </parent>
 
     <repositories>
         <repository>
@@ -107,8 +102,6 @@
                         </execution>
                     </executions>
                     <configuration>
-                        <source>8</source>
-                        <detectJavaApiLink>false</detectJavaApiLink>
                         <links>
                             <link>https://hub.spigotmc.org/javadocs/spigot/</link>
                             <link>https://javadoc.io/doc/org.sql2o/sql2o/latest/org/sql2o/Query.html</link>
@@ -159,7 +152,6 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-resources-plugin</artifactId>
-                <version>3.2.0</version>
             </plugin>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
