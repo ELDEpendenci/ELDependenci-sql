@@ -1,4 +1,4 @@
-name: ELDependenci-Addon
+name: ELDependenci-chu77-Addon
 main: chu77.eldependenci.plugin.Main
 version: ${project.version}
 depend: [ELDependenci]
