@@ -5,11 +5,11 @@ env:
 name: Publish Process
 
 # ↓ 移走 # 即可啟用自動生成 下載檔案 及 javadoc
-on:
-  push:
-    branches: [ master ]
-  pull_request:
-    branches: [ master ]
+#on:
+#  push:
+#    branches: [ master ]
+#  pull_request:
+#    branches: [ master ]
 
 jobs:
   build:

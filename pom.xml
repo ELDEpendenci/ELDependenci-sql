@@ -114,7 +114,7 @@
                         <isOffline>false</isOffline>
                         <linksource>true</linksource>
                         <encoding>UTF-8</encoding>
-                        <windowtitle>ELDependenci-Addon</windowtitle>
+                        <windowtitle>ELDependenci-sql</windowtitle>
                         <doctitle>ELDependenci-sql v${project.version}</doctitle>
                         <verbose>true</verbose>
                         <author>true</author>
