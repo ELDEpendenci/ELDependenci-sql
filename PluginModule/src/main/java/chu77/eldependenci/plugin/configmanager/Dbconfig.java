@@ -13,7 +13,7 @@ public class Dbconfig extends Configuration {
     public boolean useSSL;
     public DatabasePool pool;
     public String chatFormatPlaceholder;
-    public boolean enable = false;
+    public boolean enable;
 
     public static class DatabasePool {
         public String name;
