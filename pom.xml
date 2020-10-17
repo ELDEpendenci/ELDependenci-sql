@@ -36,19 +36,10 @@
             <groupId>com.destroystokyo.paper</groupId>
             <artifactId>paper-api</artifactId>
         </dependency>
-        <!-- https://mvnrepository.com/artifact/org.sql2o/sql2o -->
         <dependency>
             <groupId>org.sql2o</groupId>
             <artifactId>sql2o</artifactId>
-            <version>1.5.4</version>
         </dependency>
-        <!-- https://mvnrepository.com/artifact/com.zaxxer/HikariCP -->
-        <dependency>
-            <groupId>com.zaxxer</groupId>
-            <artifactId>HikariCP</artifactId>
-            <version>3.4.5</version>
-        </dependency>
-
     </dependencies>
 
     <dependencyManagement>
@@ -60,14 +51,23 @@
                 <scope>provided</scope>
             </dependency>
             <dependency>
-                <groupId>com.ericlam.mc</groupId>
+                <groupId>org.eldependenci</groupId>
                 <artifactId>eld-api</artifactId>
                 <version>0.0.6</version>
                 <scope>provided</scope>
             </dependency>
-
-
-
+            <!-- https://mvnrepository.com/artifact/org.sql2o/sql2o -->
+            <dependency>
+                <groupId>org.sql2o</groupId>
+                <artifactId>sql2o</artifactId>
+                <version>1.6.0</version>
+            </dependency>
+            <!-- https://mvnrepository.com/artifact/com.zaxxer/HikariCP -->
+            <dependency>
+                <groupId>com.zaxxer</groupId>
+                <artifactId>HikariCP</artifactId>
+                <version>3.4.5</version>
+            </dependency>
         </dependencies>
     </dependencyManagement>
 
@@ -107,8 +107,11 @@
                         </execution>
                     </executions>
                     <configuration>
+                        <source>8</source>
+                        <detectJavaApiLink>false</detectJavaApiLink>
                         <links>
                             <link>https://hub.spigotmc.org/javadocs/spigot/</link>
+                            <link>https://javadoc.io/doc/org.sql2o/sql2o/latest/org/sql2o/Query.html</link>
                         </links>
                         <show>public</show>
                         <isOffline>false</isOffline>

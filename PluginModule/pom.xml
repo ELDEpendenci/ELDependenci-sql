@@ -19,8 +19,12 @@
             <scope>compile</scope>
         </dependency>
         <dependency>
-            <groupId>com.ericlam.mc</groupId>
+            <groupId>org.eldependenci</groupId>
             <artifactId>eld-api</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.zaxxer</groupId>
+            <artifactId>HikariCP</artifactId>
         </dependency>
     </dependencies>
 
