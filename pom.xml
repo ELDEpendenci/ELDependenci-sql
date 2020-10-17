@@ -115,7 +115,7 @@
                         <linksource>true</linksource>
                         <encoding>UTF-8</encoding>
                         <windowtitle>ELDependenci-Addon</windowtitle>
-                        <doctitle>ELDependenci-Addon v${project.version}</doctitle>
+                        <doctitle>ELDependenci-sql v${project.version}</doctitle>
                         <verbose>true</verbose>
                         <author>true</author>
                         <version>true</version>
