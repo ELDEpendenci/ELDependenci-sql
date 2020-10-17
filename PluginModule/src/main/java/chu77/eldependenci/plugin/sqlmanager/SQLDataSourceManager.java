@@ -18,8 +18,7 @@ public class SQLDataSourceManager implements SQLDataSource {
     private  Sql2o sql2o;
 
     @Inject
-    private Dbconfig db;
-    private SQLDataSourceManager(){
+    private SQLDataSourceManager(Dbconfig db){
         HikariConfig config = new HikariConfig();
         String host = db.host;
         String port = db.port + "";
@@ -50,8 +49,9 @@ public class SQLDataSourceManager implements SQLDataSource {
             config.addDataSourceProperty("prepStmtCacheSize", 250);
             config.addDataSourceProperty("prepStmtCacheSqlLimit", 2048);
             config.addDataSourceProperty("characterEncoding", "utf8");
-            sqlsource = new HikariDataSource(config);
         }
+        sqlsource = new HikariDataSource(config);
+
     }
 
 

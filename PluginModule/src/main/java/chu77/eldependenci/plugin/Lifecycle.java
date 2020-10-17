@@ -8,9 +8,6 @@ import javax.inject.Inject;
 
 public class Lifecycle implements ELDLifeCycle {
 
-    @Inject
-    private SQLDataSourceManager service;
-
     @Override
     public void onEnable(JavaPlugin javaPlugin) {
         
