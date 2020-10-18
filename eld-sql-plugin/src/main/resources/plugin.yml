@@ -1,0 +1,4 @@
+name: ELDependenci-sql
+main: chu77.eldependenci.plugin.Main
+version: ${project.version}
+depend: [ELDependenci]
