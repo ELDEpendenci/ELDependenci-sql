@@ -9,15 +9,10 @@
     <packaging>pom</packaging>
     <version>1.0</version>
     <modules>
-        <module>APIModule</module>
-        <module>PluginModule</module>
+        <module>eld-sql</module>
+        <module>eld-sql-plugin</module>
     </modules>
 
-    <parent>
-        <groupId>org.sql2o</groupId>
-        <artifactId>sql2o-parent</artifactId>
-        <version>1.5.4</version>
-    </parent>
 
     <repositories>
         <repository>
@@ -36,19 +31,10 @@
             <groupId>com.destroystokyo.paper</groupId>
             <artifactId>paper-api</artifactId>
         </dependency>
-        <!-- https://mvnrepository.com/artifact/org.sql2o/sql2o -->
         <dependency>
             <groupId>org.sql2o</groupId>
             <artifactId>sql2o</artifactId>
-            <version>1.5.4</version>
         </dependency>
-        <!-- https://mvnrepository.com/artifact/com.zaxxer/HikariCP -->
-        <dependency>
-            <groupId>com.zaxxer</groupId>
-            <artifactId>HikariCP</artifactId>
-            <version>3.4.5</version>
-        </dependency>
-
     </dependencies>
 
     <dependencyManagement>
@@ -60,14 +46,23 @@
                 <scope>provided</scope>
             </dependency>
             <dependency>
-                <groupId>com.ericlam.mc</groupId>
+                <groupId>org.eldependenci</groupId>
                 <artifactId>eld-api</artifactId>
                 <version>0.0.6</version>
                 <scope>provided</scope>
             </dependency>
-
-
-
+            <!-- https://mvnrepository.com/artifact/org.sql2o/sql2o -->
+            <dependency>
+                <groupId>org.sql2o</groupId>
+                <artifactId>sql2o</artifactId>
+                <version>1.6.0</version>
+            </dependency>
+            <!-- https://mvnrepository.com/artifact/com.zaxxer/HikariCP -->
+            <dependency>
+                <groupId>com.zaxxer</groupId>
+                <artifactId>HikariCP</artifactId>
+                <version>3.4.5</version>
+            </dependency>
         </dependencies>
     </dependencyManagement>
 
@@ -109,6 +104,7 @@
                     <configuration>
                         <links>
                             <link>https://hub.spigotmc.org/javadocs/spigot/</link>
+                            <link>https://javadoc.io/doc/org.sql2o/sql2o/latest/org/sql2o/Query.html</link>
                         </links>
                         <show>public</show>
                         <isOffline>false</isOffline>
@@ -156,7 +152,6 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-resources-plugin</artifactId>
-                <version>3.2.0</version>
             </plugin>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
