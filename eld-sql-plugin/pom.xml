@@ -5,7 +5,7 @@
     <parent>
         <artifactId>ELDependenci-sql</artifactId>
         <groupId>org.eldependenci</groupId>
-        <version>1.0</version>
+        <version>0.0.3</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
@@ -20,11 +20,15 @@
         </dependency>
         <dependency>
             <groupId>org.eldependenci</groupId>
-            <artifactId>eld-api</artifactId>
+            <artifactId>eldependenci-framework</artifactId>
         </dependency>
         <dependency>
             <groupId>com.zaxxer</groupId>
             <artifactId>HikariCP</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.xerial</groupId>
+            <artifactId>sqlite-jdbc</artifactId>
         </dependency>
     </dependencies>
 

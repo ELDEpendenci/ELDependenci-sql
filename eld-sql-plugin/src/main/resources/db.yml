@@ -1,14 +1,20 @@
 enable: false
-host: 127.0.0.1
-port: 3306
-database: database
-username: username
-password: password
-useSSL: false
-pool:
-  name: SQL-Pool
-  minSize: 5
-  maxSize: 10
-  connectionTimeout: 30000
-  idleTimeout: 60000
-  maxLifeTime: 600000
+dataSource: "sqlite"
+
+sqlite:
+  file: "central.db"
+
+mysql:
+  host: 127.0.0.1
+  port: 3306
+  database: database
+  username: username
+  password: password
+  useSSL: false
+  pool:
+    name: SQL-Pool
+    minSize: 5
+    maxSize: 10
+    connectionTimeout: 30000
+    idleTimeout: 60000
+    maxLifeTime: 600000

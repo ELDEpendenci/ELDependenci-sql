@@ -1,28 +1,20 @@
-package chu77.eldependenci.plugin.sqlmanager;
+package chu77.eldependenci.sql.manager.datasource;
 
-import chu77.eldependenci.plugin.configmanager.Dbconfig;
-import chu77.eldependenci.sql.SQLDataSource;
+import chu77.eldependenci.sql.config.Dbconfig;
 import com.zaxxer.hikari.HikariConfig;
 import com.zaxxer.hikari.HikariDataSource;
 import org.sql2o.Sql2o;
 
-import javax.inject.Inject;
 import javax.sql.DataSource;
-import java.sql.Connection;
-import java.sql.SQLException;
 
+public final class MySQLDataSource implements ELDDataSource {
 
-public class SQLDataSourceManager implements SQLDataSource {
-
-    private static DataSource dataSource;
-
-    @Inject
-    private Dbconfig db;
-
+    private DataSource dataSource;
     private Sql2o sql2o;
 
-    public void initialize(){
-        if (!db.enable) throw new IllegalStateException("SQL 已被禁用，請在 db.yml 啟用它");
+    @Override
+    public void initialize(Dbconfig dbconfig) {
+        var db = dbconfig.mysql;
         HikariConfig config = new HikariConfig();
         String host = db.host;
         String port = db.port + "";
@@ -56,20 +48,12 @@ public class SQLDataSourceManager implements SQLDataSource {
     }
 
     @Override
-    public Connection getConnection() throws SQLException {
-        if (!db.enable) throw new IllegalStateException("SQL 已被禁用，請在 db.yml 啟用它");
-        return dataSource.getConnection();
-    }
-
-    @Override
     public DataSource getDataSource() {
-        if (!db.enable) throw new IllegalStateException("SQL 已被禁用，請在 db.yml 啟用它");
         return dataSource;
     }
 
     @Override
-    public Sql2o getSql2o(){
-        if (!db.enable) throw new IllegalStateException("SQL 已被禁用，請在 db.yml 啟用它");
+    public Sql2o getSql2o() {
         return sql2o;
     }
 }

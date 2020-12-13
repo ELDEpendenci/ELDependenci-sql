@@ -1,5 +1,5 @@
 env:
-  version: 1.0 # 你的版本名稱
+  version: 0.0.3 # 你的版本名稱
   GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
 name: Publish Process
@@ -40,7 +40,7 @@ jobs:
           tag_name: ${{ env.version }}
           release_name: Release ${{ github.repository }}-${{ env.version }}
           body: |
-            (寫下你的更新)
+            新增了SQLite方法
           draft: false
           prerelease: false
       - name: Upload Release jar
@@ -53,36 +53,7 @@ jobs:
           asset_content_type: application/java-archive
       - name: 'Update javadocs'
         id: update-javadoc
-        run: |
-          mvn clean
-          echo "directory is now before checkout"
-          ls -la
-          git config --global pull.rebase false
-          git config --global user.name "Javadocs Generator Bot"
-          git config --global user.email "<>"
-          git branch -D gh-pages && echo Previous branch gh-pages successfully removed
-          git checkout --orphan gh-pages
-          for f in `ls -a`
-          do
-             remove="true"
-             for ele in "javadocs" "." ".." ".git"
-             do
-                if [ $f = $ele ]
-                then
-                  remove="false"
-                fi
-             done
-             if [ $remove = "true" ]
-             then
-               rm -rfv $f
-             fi
-          done
-          git fetch
-          git pull origin gh-pages
-          echo "directory is now after checkout"
-          ls -la
-          git rm -rf .
-          mv javadocs/* .
-          git add *
-          git commit -am "update javadocs"
-          git push -u origin gh-pages
+        uses: eric2788/push-javadoc-branch@main
+        with:
+          use-maven: true
+          javadocs: "javadocs"
