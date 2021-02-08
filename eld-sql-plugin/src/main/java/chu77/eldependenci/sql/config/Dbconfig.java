@@ -7,7 +7,7 @@ import com.ericlam.mc.eld.components.Configuration;
 public class Dbconfig extends Configuration {
 
     public boolean enable;
-    public String datasource;
+    public String dataSource;
     public MySQL mysql;
     public SQLite sqlite;
 
