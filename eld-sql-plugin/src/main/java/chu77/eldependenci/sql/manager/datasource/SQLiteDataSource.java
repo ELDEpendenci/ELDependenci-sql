@@ -1,14 +1,12 @@
 package chu77.eldependenci.sql.manager.datasource;
 
-import chu77.eldependenci.sql.EntityRegistration;
 import chu77.eldependenci.sql.SQLAddon;
 import chu77.eldependenci.sql.config.Dbconfig;
-import org.hibernate.SessionFactory;
+import com.enigmabridge.hibernate.dialect.SQLiteDialect;
 
 import javax.inject.Inject;
 import javax.sql.DataSource;
 import java.io.File;
-import java.util.Map;
 
 public final class SQLiteDataSource extends ELDSessionFactoryInterpreter {
 
@@ -16,9 +14,6 @@ public final class SQLiteDataSource extends ELDSessionFactoryInterpreter {
 
     @Inject
     private SQLAddon plugin;
-
-    @Inject
-    private Map<String, EntityRegistration> jpaRegistrationMap;
 
     @Override
     public DataSource getDataSource() {
@@ -32,8 +27,7 @@ public final class SQLiteDataSource extends ELDSessionFactoryInterpreter {
         org.sqlite.SQLiteDataSource dataSource = new org.sqlite.SQLiteDataSource();
         dataSource.setUrl("jdbc:sqlite:" + path.getAbsolutePath());
         this.dataSource = dataSource;
-
-        this.loadEntityRegistration(jpaRegistrationMap, dataSource);
+        this.loadEntityRegistration(dataSource, SQLiteDialect.class);
     }
 
 }

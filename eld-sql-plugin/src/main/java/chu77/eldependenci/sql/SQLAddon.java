@@ -12,6 +12,7 @@ import com.ericlam.mc.eld.ManagerProvider;
 import com.ericlam.mc.eld.ServiceCollection;
 import com.ericlam.mc.eld.annotations.ELDPlugin;
 
+import java.io.File;
 import java.util.Map;
 
 @ELDPlugin(
@@ -35,7 +36,8 @@ public class SQLAddon extends ELDBukkitPlugin {
 
     @Override
     protected void manageProvider(ManagerProvider managerProvider) {
-
+        File prop = new File(getDataFolder(), "hibernate.properties");
+        if (!prop.exists()) saveResource("hibernate.properties", true);
     }
 }
 

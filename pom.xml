@@ -53,6 +53,11 @@
                 <version>${hibernate.version}</version>
             </dependency>
             <dependency>
+                <groupId>com.enigmabridge</groupId>
+                <artifactId>hibernate4-sqlite-dialect</artifactId>
+                <version>0.1.2</version>
+            </dependency>
+            <dependency>
                 <groupId>org.hibernate</groupId>
                 <artifactId>hibernate-hikaricp</artifactId>
                 <version>5.2.10.Final</version>

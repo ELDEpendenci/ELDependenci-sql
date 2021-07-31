@@ -4,11 +4,13 @@ import chu77.eldependenci.sql.JpaFactoryService;
 import chu77.eldependenci.sql.SQLService;
 import org.springframework.data.jpa.repository.support.JpaRepositoryFactory;
 import org.springframework.orm.jpa.JpaTransactionManager;
+import org.springframework.orm.jpa.SharedEntityManagerCreator;
 import org.springframework.transaction.TransactionManager;
 import org.springframework.transaction.annotation.AnnotationTransactionAttributeSource;
 import org.springframework.transaction.interceptor.TransactionInterceptor;
 
 import javax.inject.Inject;
+import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
@@ -24,11 +26,15 @@ public final class JpaFactoryManager implements JpaFactoryService {
     public JpaRepositoryFactory getJpaFactory(String session) {
         if (factoryMap.containsKey(session)) return factoryMap.get(session);
         EntityManagerFactory emf = sqlService.getSessionFactory(session);
-        if (emf == null) throw new IllegalStateException("cannot get JpaFactory from session name: "+session);
+        if (emf == null) throw new IllegalStateException("cannot get JpaFactory from session name: " + session);
         JpaTransactionManager jpaTransactionManager = new JpaTransactionManager(emf);
+        EntityManager em = SharedEntityManagerCreator.createSharedEntityManager(emf);
         jpaTransactionManager.setDataSource(sqlService.getDataSource());
-        final JpaRepositoryFactory factory = new JpaRepositoryFactory(emf.createEntityManager());
-        factory.addRepositoryProxyPostProcessor((factory1, repositoryInformation) -> factory1.addAdvice(new TransactionInterceptor((TransactionManager) jpaTransactionManager, new AnnotationTransactionAttributeSource())));
+        final JpaRepositoryFactory factory = new JpaRepositoryFactory(em);
+        factory.setBeanClassLoader(this.getClass().getClassLoader());
+        factory.addRepositoryProxyPostProcessor((proxy, repositoryInformation) ->
+                proxy.addAdvice(new TransactionInterceptor((TransactionManager) jpaTransactionManager, new AnnotationTransactionAttributeSource()))
+        );
         this.factoryMap.put(session, factory);
         return factory;
     }

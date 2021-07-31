@@ -10,7 +10,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <artifactId>eld-sql-plugin</artifactId>
-    <version>${project.parent.version}1</version>
+    <version>${project.parent.version}.1</version>
 
     <dependencies>
         <dependency>
@@ -38,6 +38,10 @@
         <dependency>
             <groupId>org.hibernate</groupId>
             <artifactId>hibernate-hikaricp</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.enigmabridge</groupId>
+            <artifactId>hibernate4-sqlite-dialect</artifactId>
         </dependency>
     </dependencies>
 

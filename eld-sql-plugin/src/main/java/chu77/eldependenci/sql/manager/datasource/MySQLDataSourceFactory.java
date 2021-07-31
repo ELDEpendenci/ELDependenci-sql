@@ -1,20 +1,15 @@
 package chu77.eldependenci.sql.manager.datasource;
 
-import chu77.eldependenci.sql.EntityRegistration;
 import chu77.eldependenci.sql.config.Dbconfig;
 import com.zaxxer.hikari.HikariConfig;
 import com.zaxxer.hikari.HikariDataSource;
+import org.hibernate.dialect.MySQL8Dialect;
 
-import javax.inject.Inject;
 import javax.sql.DataSource;
-import java.util.Map;
 
 public final class MySQLDataSourceFactory extends ELDSessionFactoryInterpreter {
 
     private DataSource dataSource;
-
-    @Inject
-    private Map<String, EntityRegistration> jpaRegistrationMap;
 
     @Override
     public void initialize(Dbconfig dbconfig) {
@@ -50,7 +45,7 @@ public final class MySQLDataSourceFactory extends ELDSessionFactoryInterpreter {
 
         dataSource = new HikariDataSource(config);
 
-        this.loadEntityRegistration(jpaRegistrationMap, dataSource);
+        this.loadEntityRegistration(dataSource, MySQL8Dialect.class);
 
     }
 
