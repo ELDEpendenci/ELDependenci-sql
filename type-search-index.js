@@ -1,1 +1,1 @@
-typeSearchIndex = [{"l":"All Classes","url":"allclasses-index.html"},{"p":"chu77.eldependenci.sql","l":"SQLDataSource"}]
+typeSearchIndex = [{"l":"All Classes","url":"allclasses-index.html"},{"p":"chu77.eldependenci.sql","l":"EntityRegistration"},{"p":"chu77.eldependenci.sql","l":"JpaFactoryService"},{"p":"chu77.eldependenci.sql","l":"SQLService"}]
