@@ -13,13 +13,13 @@ public class SQLAddonLifecycle implements ELDLifeCycle {
     private Dbconfig dbconfig;
 
     @Inject
-    private SQLDataSource sqlDataSource;
+    private SQLService sqlService;
 
     @Override
     public void onEnable(JavaPlugin javaPlugin) {
         if (dbconfig.enable){ // 如果 sql 已被啟用
             javaPlugin.getLogger().info("正在初始化 mysql....");
-            ((SQLDataSourceManager)sqlDataSource).initialize(); // 初始化sql
+            ((SQLDataSourceManager) sqlService).initialize(); // 初始化sql
         }
     }
 

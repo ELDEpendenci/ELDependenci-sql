@@ -2,9 +2,10 @@ package chu77.eldependenci.sql;
 
 
 import chu77.eldependenci.sql.config.Dbconfig;
+import chu77.eldependenci.sql.manager.JpaFactoryManager;
 import chu77.eldependenci.sql.manager.SQLDataSourceManager;
-import chu77.eldependenci.sql.manager.datasource.ELDDataSource;
-import chu77.eldependenci.sql.manager.datasource.MySQLDataSource;
+import chu77.eldependenci.sql.manager.datasource.ELDDataSourceFactory;
+import chu77.eldependenci.sql.manager.datasource.MySQLDataSourceFactory;
 import chu77.eldependenci.sql.manager.datasource.SQLiteDataSource;
 import com.ericlam.mc.eld.ELDBukkitPlugin;
 import com.ericlam.mc.eld.ManagerProvider;
@@ -22,11 +23,13 @@ public class SQLAddon extends ELDBukkitPlugin {
     @Override
     protected void bindServices(ServiceCollection serviceCollection) {
         serviceCollection.addConfiguration(Dbconfig.class);
-        serviceCollection.addServices(ELDDataSource.class, Map.of(
-                "mysql", MySQLDataSource.class,
+        serviceCollection.addServices(ELDDataSourceFactory.class, Map.of(
+                "mysql", MySQLDataSourceFactory.class,
                 "sqlite", SQLiteDataSource.class
         ));
-        serviceCollection.bindService(SQLDataSource.class, SQLDataSourceManager.class);
+        serviceCollection.bindService(SQLService.class, SQLDataSourceManager.class);
+        serviceCollection.bindService(JpaFactoryService.class, JpaFactoryManager.class);
+        serviceCollection.addServices(EntityRegistration.class, Map.of());
 
     }
 

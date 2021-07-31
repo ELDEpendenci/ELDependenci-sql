@@ -1,6 +1,6 @@
 package chu77.eldependenci.sql;
 
-import org.sql2o.Sql2o;
+import org.hibernate.SessionFactory;
 
 import javax.sql.DataSource;
 import java.sql.Connection;
@@ -9,7 +9,7 @@ import java.sql.SQLException;
 /**
  * SQL 服務
  */
-public interface SQLDataSource {
+public interface SQLService {
 
     /**
      * @return SQL連接
@@ -23,7 +23,10 @@ public interface SQLDataSource {
     DataSource getDataSource();
 
     /**
-     * @return  sql2o 方法
+     *
+     * @param sessionName 你在註冊時定義的 session 名稱
+     * @return Hibernate 的 SessionFactory
      */
-    Sql2o getSql2o();
+    SessionFactory getSessionFactory(String sessionName);
+
 }

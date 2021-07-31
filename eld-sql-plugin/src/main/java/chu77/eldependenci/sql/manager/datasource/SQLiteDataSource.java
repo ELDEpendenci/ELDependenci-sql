@@ -1,30 +1,30 @@
 package chu77.eldependenci.sql.manager.datasource;
 
+import chu77.eldependenci.sql.EntityRegistration;
 import chu77.eldependenci.sql.SQLAddon;
 import chu77.eldependenci.sql.config.Dbconfig;
-import org.sql2o.Sql2o;
+import org.hibernate.SessionFactory;
 
 import javax.inject.Inject;
 import javax.sql.DataSource;
 import java.io.File;
+import java.util.Map;
 
-public final class SQLiteDataSource implements ELDDataSource {
+public final class SQLiteDataSource extends ELDSessionFactoryInterpreter {
 
     private DataSource dataSource;
-    private Sql2o sql2o;
 
     @Inject
     private SQLAddon plugin;
+
+    @Inject
+    private Map<String, EntityRegistration> jpaRegistrationMap;
 
     @Override
     public DataSource getDataSource() {
         return dataSource;
     }
 
-    @Override
-    public Sql2o getSql2o() {
-        return sql2o;
-    }
 
     @Override
     public void initialize(Dbconfig dbconfig) {
@@ -32,6 +32,8 @@ public final class SQLiteDataSource implements ELDDataSource {
         org.sqlite.SQLiteDataSource dataSource = new org.sqlite.SQLiteDataSource();
         dataSource.setUrl("jdbc:sqlite:" + path.getAbsolutePath());
         this.dataSource = dataSource;
-        sql2o = new Sql2o(dataSource);
+
+        this.loadEntityRegistration(jpaRegistrationMap, dataSource);
     }
+
 }

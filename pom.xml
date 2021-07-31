@@ -7,11 +7,15 @@
     <groupId>org.eldependenci</groupId>
     <artifactId>ELDependenci-sql</artifactId>
     <packaging>pom</packaging>
-    <version>0.0.3</version>
+    <version>0.0.4</version>
     <modules>
         <module>eld-sql</module>
         <module>eld-sql-plugin</module>
     </modules>
+
+    <properties>
+        <hibernate.version>5.5.5.Final</hibernate.version>
+    </properties>
 
 
     <repositories>
@@ -32,13 +36,40 @@
             <artifactId>paper-api</artifactId>
         </dependency>
         <dependency>
-            <groupId>org.sql2o</groupId>
-            <artifactId>sql2o</artifactId>
+            <groupId>org.springframework.data</groupId>
+            <artifactId>spring-data-jpa</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.hibernate</groupId>
+            <artifactId>hibernate-core</artifactId>
         </dependency>
     </dependencies>
 
     <dependencyManagement>
         <dependencies>
+            <dependency>
+                <groupId>org.hibernate</groupId>
+                <artifactId>hibernate-core</artifactId>
+                <version>${hibernate.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.hibernate</groupId>
+                <artifactId>hibernate-hikaricp</artifactId>
+                <version>5.2.10.Final</version>
+            </dependency>
+            <!-- https://mvnrepository.com/artifact/org.hibernate/hibernate-entitymanager -->
+            <dependency>
+                <groupId>org.hibernate</groupId>
+                <artifactId>hibernate-entitymanager</artifactId>
+                <version>${hibernate.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework.data</groupId>
+                <artifactId>spring-data-bom</artifactId>
+                <version>2021.0.3</version>
+                <scope>import</scope>
+                <type>pom</type>
+            </dependency>
             <dependency>
                 <groupId>com.destroystokyo.paper</groupId>
                 <artifactId>paper-api</artifactId>
@@ -51,19 +82,11 @@
                 <version>0.0.7</version>
                 <scope>provided</scope>
             </dependency>
-            <!-- https://mvnrepository.com/artifact/org.sql2o/sql2o -->
-            <dependency>
-                <groupId>org.sql2o</groupId>
-                <artifactId>sql2o</artifactId>
-                <version>1.6.0</version>
-            </dependency>
-            <!-- https://mvnrepository.com/artifact/com.zaxxer/HikariCP -->
             <dependency>
                 <groupId>com.zaxxer</groupId>
                 <artifactId>HikariCP</artifactId>
                 <version>3.4.5</version>
             </dependency>
-            <!-- https://mvnrepository.com/artifact/org.xerial/sqlite-jdbc -->
             <dependency>
                 <groupId>org.xerial</groupId>
                 <artifactId>sqlite-jdbc</artifactId>

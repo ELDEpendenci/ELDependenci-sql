@@ -1,16 +1,20 @@
 package chu77.eldependenci.sql.manager.datasource;
 
+import chu77.eldependenci.sql.EntityRegistration;
 import chu77.eldependenci.sql.config.Dbconfig;
 import com.zaxxer.hikari.HikariConfig;
 import com.zaxxer.hikari.HikariDataSource;
-import org.sql2o.Sql2o;
 
+import javax.inject.Inject;
 import javax.sql.DataSource;
+import java.util.Map;
 
-public final class MySQLDataSource implements ELDDataSource {
+public final class MySQLDataSourceFactory extends ELDSessionFactoryInterpreter {
 
     private DataSource dataSource;
-    private Sql2o sql2o;
+
+    @Inject
+    private Map<String, EntityRegistration> jpaRegistrationMap;
 
     @Override
     public void initialize(Dbconfig dbconfig) {
@@ -43,8 +47,11 @@ public final class MySQLDataSource implements ELDDataSource {
         config.addDataSourceProperty("prepStmtCacheSize", 250);
         config.addDataSourceProperty("prepStmtCacheSqlLimit", 2048);
         config.addDataSourceProperty("characterEncoding", "utf8");
+
         dataSource = new HikariDataSource(config);
-        sql2o = new Sql2o(dataSource);
+
+        this.loadEntityRegistration(jpaRegistrationMap, dataSource);
+
     }
 
     @Override
@@ -52,8 +59,15 @@ public final class MySQLDataSource implements ELDDataSource {
         return dataSource;
     }
 
-    @Override
-    public Sql2o getSql2o() {
-        return sql2o;
-    }
+    /*
+     hibernate.connection.provider_class = com.zaxxer.hikari.hibernate.HikariConnectionProvider
+        hibernate.hikari.minimumIdle = 5
+        hibernate.hikari.maximumPoolSize = 10
+        hibernate.hikari.idleTimeout = 30000
+        hibernate.hikari.dataSourceClassName = com.mysql.jdbc.jdbc2.optional.MysqlDataSource
+        hibernate.hikari.dataSource.url = jdbc:mysql:
+        //localhost/database
+        hibernate.hikari.dataSource.user = bart
+        hibernate.hikari.dataSource.password = 51 mp50n
+     */
 }
