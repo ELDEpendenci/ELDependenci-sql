@@ -1,6 +1,7 @@
 env:
   version: 0.0.5 # 你的版本名稱
   GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+  plugin_name: "eldependenci-sql-plugin"
 
 name: Publish Process
 
@@ -37,7 +38,7 @@ jobs:
           tag_name: ${{ env.version }}
           release_name: Release ${{ github.repository }}-${{ env.version }}
           body: |
-            新增了SQLite方法
+            版本更新請到[這裏](https://eric2788.gitbook.io/eldependenci-sql/references/update/v0.0.5)查看。
           draft: false
           prerelease: false
       - name: Upload Release jar
@@ -45,8 +46,8 @@ jobs:
         uses: actions/upload-release-asset@v1
         with:
           upload_url: ${{ steps.create_release.outputs.upload_url }} # This pulls from the CREATE RELEASE step above, referencing it's ID to get its outputs object, which include a `upload_url`. See this blog post for more info: https://jasonet.co/posts/new-features-of-github-actions/#passing-data-to-future-steps
-          asset_path: ./eld-sql-plugin/target/eld-sql-plugin-${{env.version}}.jar # 請根據你插件名稱進行的修改
-          asset_name: eld-sql-plugin-${{ env.version }}.jar # 請根據你插件名稱進行的修改
+          asset_path: ./${{ env.plugin_name }}/target/${{ env.plugin_name }}-${{env.version}}.jar # 請根據你插件名稱進行的修改
+          asset_name: ${{ env.plugin_name }}-${{ env.version }}.jar # 請根據你插件名稱進行的修改
           asset_content_type: application/java-archive
       - name: 'Update javadocs'
         id: update-javadoc

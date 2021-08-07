@@ -24,7 +24,7 @@ public final class JpaRepositoryModule extends AbstractModule {
 
         bind(EntityManager.class).toProvider(EntityManagerProvider.class).in(Scopes.SINGLETON);
         eldsqlInstallation.getRepositories().forEach(re -> bind(re).toProvider(new RepositoryProvider<>(re)));
-        bind(new TypeLiteral<Set<Class<?>>>(){}).annotatedWith(Names.named("jpa-entities")).toInstance(eldsqlInstallation.getEntities());
+        bind(new TypeLiteral<Set<Class<?>>>(){}).annotatedWith(Names.named("jpa-entities")).toInstance(eldsqlInstallation.getEntitySet());
         bind(new TypeLiteral<Map<Class<?>, Class<?>[]>>(){}).annotatedWith(Names.named("jpa-custom-implements")).toInstance(eldsqlInstallation.getCustomImplements());
         bind(RepoImplementManager.class).in(Scopes.SINGLETON);
 
