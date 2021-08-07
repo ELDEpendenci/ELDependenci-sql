@@ -1,0 +1,4 @@
+name: ELDependenci-SQL
+main: chu77.eldependenci.sql.SQLAddon
+version: ${project.version}
+depend: [ELDependenci]

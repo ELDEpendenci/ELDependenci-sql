@@ -1,4 +1,0 @@
-name: eld-sql-plugin
-main: chu77.eldependenci.sql.SQLAddon
-version: ${project.version}
-depend: [ELDependenci]

@@ -7,14 +7,15 @@
     <groupId>org.eldependenci</groupId>
     <artifactId>ELDependenci-sql</artifactId>
     <packaging>pom</packaging>
-    <version>0.0.4</version>
+    <version>0.0.5</version>
     <modules>
-        <module>eld-sql</module>
-        <module>eld-sql-plugin</module>
+        <module>eldependenci-sql</module>
+        <module>eldependenci-sql-plugin</module>
     </modules>
 
     <properties>
         <hibernate.version>5.5.5.Final</hibernate.version>
+        <guice.version>5.0.1</guice.version>
     </properties>
 
 
@@ -70,10 +71,9 @@
             </dependency>
             <dependency>
                 <groupId>org.springframework.data</groupId>
-                <artifactId>spring-data-bom</artifactId>
-                <version>2021.0.3</version>
-                <scope>import</scope>
-                <type>pom</type>
+                <artifactId>spring-data-jpa</artifactId>
+                <version>2.5.3</version>
+                <optional>true</optional>
             </dependency>
             <dependency>
                 <groupId>com.destroystokyo.paper</groupId>
@@ -84,7 +84,19 @@
             <dependency>
                 <groupId>org.eldependenci</groupId>
                 <artifactId>eldependenci-framework</artifactId>
-                <version>0.0.7</version>
+                <version>0.1.1</version>
+                <scope>provided</scope>
+            </dependency>
+            <dependency>
+                <groupId>org.eldependenci</groupId>
+                <artifactId>eldependenci-addon</artifactId>
+                <version>0.1.1</version>
+                <scope>provided</scope>
+            </dependency>
+            <dependency>
+                <groupId>com.google.inject.extensions</groupId>
+                <artifactId>guice-persist</artifactId>
+                <version>${guice.version}</version>
                 <scope>provided</scope>
             </dependency>
             <dependency>
@@ -166,6 +178,10 @@
                         <source>11</source>
                         <target>11</target>
                         <encoding>UTF-8</encoding>
+                        <excludes>
+                            <exclude>**/org/aopalliance/**</exclude>
+                            <exclude>org.aopalliance.*</exclude>
+                        </excludes>
                     </configuration>
                 </plugin>
                 <plugin>
@@ -178,8 +194,26 @@
                             <goals>
                                 <goal>shade</goal>
                             </goals>
+                            <configuration>
+                                <filters>
+                                    <filter>
+                                        <artifact>*:*</artifact>
+                                        <excludes>
+                                            <exclude>org/aopalliance/**</exclude>
+                                        </excludes>
+                                    </filter>
+                                </filters>
+                            </configuration>
                         </execution>
                     </executions>
+                    <configuration>
+                        <!--relocations>
+                            <relocation>
+                                <pattern>org.aopalliance</pattern>
+                                <shadedPattern>org.eld.aopalliance</shadedPattern>
+                            </relocation>
+                        </relocations-->
+                    </configuration>
                 </plugin>
             </plugins>
         </pluginManagement>
