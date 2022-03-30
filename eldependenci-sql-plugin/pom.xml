@@ -3,7 +3,7 @@
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <parent>
-        <artifactId>ELDependenci-sql</artifactId>
+        <artifactId>eldependenci-sql-module</artifactId>
         <groupId>org.eldependenci</groupId>
         <version>0.0.5</version>
     </parent>
@@ -67,6 +67,13 @@
                             <exclude>org.aopalliance:**</exclude>
                         </excludes>
                     </artifactSet>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-deploy-plugin</artifactId>
+                <configuration>
+                    <skip>true</skip>
                 </configuration>
             </plugin>
         </plugins>

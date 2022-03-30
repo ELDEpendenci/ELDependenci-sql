@@ -5,7 +5,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>org.eldependenci</groupId>
-    <artifactId>ELDependenci-sql</artifactId>
+    <artifactId>eldependenci-sql-module</artifactId>
     <packaging>pom</packaging>
     <version>0.0.5</version>
     <modules>
@@ -16,6 +16,7 @@
     <properties>
         <hibernate.version>5.5.5.Final</hibernate.version>
         <guice.version>5.0.1</guice.version>
+        <maven.compiler.target>16</maven.compiler.target>
     </properties>
 
 
@@ -25,8 +26,8 @@
             <url>https://papermc.io/repo/repository/maven-public/</url>
         </repository>
         <repository>
-            <id>chu77</id>
-            <url>https://nexus.chu77.xyz/repository/plugins/</url>
+            <id>github</id>
+            <url>https://maven.pkg.github.com/ELDependenci/eldependenci</url>
         </repository>
 
     </repositories>
@@ -84,13 +85,13 @@
             <dependency>
                 <groupId>org.eldependenci</groupId>
                 <artifactId>eldependenci-framework</artifactId>
-                <version>0.1.1</version>
+                <version>0.1.5</version>
                 <scope>provided</scope>
             </dependency>
             <dependency>
                 <groupId>org.eldependenci</groupId>
                 <artifactId>eldependenci-addon</artifactId>
-                <version>0.1.1</version>
+                <version>0.1.5</version>
                 <scope>provided</scope>
             </dependency>
             <dependency>
@@ -151,7 +152,8 @@
                     <configuration>
                         <links>
                             <link>https://hub.spigotmc.org/javadocs/spigot/</link>
-                            <link>https://javadoc.io/doc/org.sql2o/sql2o/latest/org/sql2o/Query.html</link>
+                            <link>https://docs.jboss.org/hibernate/orm/5.4/javadocs/</link>
+                            <link>https://docs.spring.io/spring-data/jpa/docs/current/api/</link>
                         </links>
                         <show>public</show>
                         <isOffline>false</isOffline>
@@ -175,8 +177,8 @@
                     <artifactId>maven-compiler-plugin</artifactId>
                     <version>3.8.1</version>
                     <configuration>
-                        <source>11</source>
-                        <target>11</target>
+                        <source>${maven.compiler.target}</source>
+                        <target>${maven.compiler.target}</target>
                         <encoding>UTF-8</encoding>
                         <excludes>
                             <exclude>**/org/aopalliance/**</exclude>
@@ -215,6 +217,11 @@
                         </relocations-->
                     </configuration>
                 </plugin>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-deploy-plugin</artifactId>
+                    <version>3.0.0-M2</version>
+                </plugin>
             </plugins>
         </pluginManagement>
         <plugins>
@@ -229,4 +236,11 @@
         </plugins>
     </build>
 
+    <distributionManagement>
+        <repository>
+            <id>github</id>
+            <uniqueVersion>false</uniqueVersion>
+            <url>https://maven.pkg.github.com/ELDependenci/eldependenci-sql</url>
+        </repository>
+    </distributionManagement>
 </project>
