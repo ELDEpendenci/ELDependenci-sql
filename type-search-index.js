@@ -1,1 +1,1 @@
-typeSearchIndex = [{"l":"All Classes","url":"allclasses-index.html"},{"p":"chu77.eldependenci.sql","l":"SQLInstallation"},{"p":"chu77.eldependenci.sql","l":"SQLService"}]
+typeSearchIndex = [{"l":"All Classes","u":"allclasses-index.html"},{"p":"chu77.eldependenci.sql","l":"SQLInstallation"},{"p":"chu77.eldependenci.sql","l":"SQLService"}];updateSearchResults();
