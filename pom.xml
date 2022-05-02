@@ -7,7 +7,7 @@
     <groupId>org.eldependenci</groupId>
     <artifactId>eldependenci-sql-module</artifactId>
     <packaging>pom</packaging>
-    <version>0.0.5</version>
+    <version>0.0.6</version>
     <modules>
         <module>eldependenci-sql</module>
         <module>eldependenci-sql-plugin</module>
@@ -79,7 +79,7 @@
             <dependency>
                 <groupId>io.papermc.paper</groupId>
                 <artifactId>paper-api</artifactId>
-                <version>1.17.1-R0.1-SNAPSHOT</version>
+                <version>1.18.2-R0.1-SNAPSHOT</version>
                 <scope>provided</scope>
             </dependency>
             <dependency>

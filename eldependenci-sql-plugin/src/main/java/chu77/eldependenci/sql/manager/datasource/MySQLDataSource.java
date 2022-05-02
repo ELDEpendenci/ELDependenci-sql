@@ -7,7 +7,7 @@ import org.hibernate.dialect.MySQL8Dialect;
 
 import javax.sql.DataSource;
 
-public final class MySQLDataSourceFactory extends ELDSessionFactoryInterpreter {
+public final class MySQLDataSource extends ELDSessionFactoryInterpreter {
 
     private DataSource dataSource;
 
