@@ -7,10 +7,11 @@
     <groupId>org.eldependenci</groupId>
     <artifactId>eldependenci-sql-module</artifactId>
     <packaging>pom</packaging>
-    <version>0.0.5</version>
+    <version>0.0.6</version>
     <modules>
         <module>eldependenci-sql</module>
         <module>eldependenci-sql-plugin</module>
+        <module>eldependenci-sql-bridge</module>
     </modules>
 
     <properties>

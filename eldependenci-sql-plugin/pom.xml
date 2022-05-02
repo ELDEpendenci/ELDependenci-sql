@@ -5,7 +5,7 @@
     <parent>
         <artifactId>eldependenci-sql-module</artifactId>
         <groupId>org.eldependenci</groupId>
-        <version>0.0.5</version>
+        <version>0.0.6</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
@@ -16,6 +16,12 @@
         <dependency>
             <groupId>org.eldependenci</groupId>
             <artifactId>eldependenci-sql</artifactId>
+            <version>${project.parent.version}</version>
+            <scope>compile</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.eldependenci</groupId>
+            <artifactId>eldependenci-sql-bridge</artifactId>
             <version>${project.parent.version}</version>
             <scope>compile</scope>
         </dependency>
