@@ -23,4 +23,4 @@ jobs:
         uses: actions/upload-artifact@v1
         with:
           name: ELDependenci-SQL
-          path: target/
+          path: ./eldependenci-sql-plugin/target/
