@@ -42,7 +42,6 @@ public class SQLAddon extends ELDBukkitAddon {
     protected void preAddonInstall(ManagerProvider managerProvider, AddonManager moduleInstaller) {
         File prop = new File(getDataFolder(), "hibernate.properties");
         if (!prop.exists()) saveResource("hibernate.properties", true);
-        //Dbconfig dbconfig = managerProvider.getConfigStorage().getConfigAs(Dbconfig.class);
         ELDSQLInstallation eldsqlInstallation = new ELDSQLInstallation();
         moduleInstaller.customInstallation(SQLInstallation.class, eldsqlInstallation);
         moduleInstaller.installModule(new JpaRepositoryModule(eldsqlInstallation));

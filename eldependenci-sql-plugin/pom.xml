@@ -21,12 +21,6 @@
         </dependency>
         <dependency>
             <groupId>org.eldependenci</groupId>
-            <artifactId>eldependenci-sql-bridge</artifactId>
-            <version>${project.parent.version}</version>
-            <scope>compile</scope>
-        </dependency>
-        <dependency>
-            <groupId>org.eldependenci</groupId>
             <artifactId>eldependenci-framework</artifactId>
         </dependency>
         <dependency>

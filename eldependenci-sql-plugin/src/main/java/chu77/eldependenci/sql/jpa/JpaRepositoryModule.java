@@ -3,11 +3,13 @@ package chu77.eldependenci.sql.jpa;
 import chu77.eldependenci.sql.ELDSQLInstallation;
 import chu77.eldependenci.sql.manager.datasource.EntityManagerProvider;
 import com.google.inject.AbstractModule;
+import com.google.inject.Provides;
 import com.google.inject.Scopes;
 import com.google.inject.TypeLiteral;
 import com.google.inject.name.Names;
 
 import javax.persistence.EntityManager;
+import javax.sql.DataSource;
 import java.util.Map;
 import java.util.Set;
 
@@ -27,19 +29,23 @@ public final class JpaRepositoryModule extends AbstractModule {
         bind(new TypeLiteral<Set<Class<?>>>(){}).annotatedWith(Names.named("jpa-entities")).toInstance(eldsqlInstallation.getEntitySet());
         bind(new TypeLiteral<Map<Class<?>, Class<?>[]>>(){}).annotatedWith(Names.named("jpa-custom-implements")).toInstance(eldsqlInstallation.getCustomImplements());
         bind(RepoImplementManager.class).in(Scopes.SINGLETON);
+        bind(ELDSQLInstallation.CustomSource.class).toInstance(eldsqlInstallation.getCustomSource());
 
-        /*
+        /* unused
+
         JpaTransactionInterceptor transactionInterceptor = new JpaTransactionInterceptor();
         requestInjection(transactionInterceptor);
         bindInterceptor(Matchers.annotatedWith(Transactional.class), Matchers.any(), transactionInterceptor);
         bindInterceptor(Matchers.any(), Matchers.annotatedWith(Transactional.class), transactionInterceptor);
          */
 
-        /*
+        /* unused
+
         RepositoryTypeListener repositoryTypeListener = new RepositoryTypeListener();
         requestInjection(repositoryTypeListener);
         bindListener(Matchers.any(), repositoryTypeListener);
 
          */
     }
+
 }
