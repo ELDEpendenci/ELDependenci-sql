@@ -1,13 +1,10 @@
 package chu77.eldependenci.sql.manager;
 
-import chu77.eldependenci.sql.DataSourceInjector;
 import chu77.eldependenci.sql.SQLAddon;
 import chu77.eldependenci.sql.SQLService;
 import chu77.eldependenci.sql.config.Dbconfig;
-import chu77.eldependenci.sql.manager.datasource.CustomDataSource;
 import chu77.eldependenci.sql.manager.datasource.ELDDataSourceFactory;
 import org.hibernate.SessionFactory;
-import org.hibernate.dialect.Dialect;
 
 import javax.inject.Inject;
 import javax.sql.DataSource;
@@ -17,7 +14,7 @@ import java.util.Map;
 import java.util.Optional;
 
 
-public final class SQLDataSourceManager implements SQLService, DataSourceInjector {
+public final class SQLDataSourceManager implements SQLService {
 
     private final Dbconfig db;
     private final ELDDataSourceFactory dataSourceFactory;
@@ -55,14 +52,5 @@ public final class SQLDataSourceManager implements SQLService, DataSourceInjecto
 
     private void validate() {
         if (!db.enable) throw new IllegalStateException("SQL is disabled, please enable it in db.yml");
-    }
-
-    @Override
-    public void injectExternal(DataSource dataSource, Class<? extends Dialect> dialect) {
-        if (dataSourceFactory instanceof CustomDataSource custom) {
-            custom.setDataSource(dataSource, dialect);
-        }else{
-            throw new IllegalStateException("cannot inject external datasource because the current datasource is not a custom datasource");
-        }
     }
 }
