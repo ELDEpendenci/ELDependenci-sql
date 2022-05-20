@@ -17,7 +17,7 @@
         <hibernate.version>5.5.5.Final</hibernate.version>
         <guice.version>5.0.1</guice.version>
         <maven.compiler.target>18</maven.compiler.target>
-        <eld.version>2.0.2-SNAPSHOT</eld.version>
+        <eld.version>2.0.3-SNAPSHOT</eld.version>
     </properties>
 
 
@@ -100,7 +100,7 @@
             <dependency>
                 <groupId>org.eldependenci</groupId>
                 <artifactId>eldependenci-addon</artifactId>
-                <version>2.0.1-SNAPSHOT</version>
+                <version>${eld.version}</version>
                 <scope>provided</scope>
             </dependency>
             <dependency>
