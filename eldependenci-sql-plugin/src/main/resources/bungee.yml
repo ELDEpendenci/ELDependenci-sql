@@ -1,0 +1,4 @@
+name: ELDependenci-SQL
+main: chu77.eldependenci.sql.bungee.SQLAddon
+version: ${project.version}
+depends: [ELDependenci]

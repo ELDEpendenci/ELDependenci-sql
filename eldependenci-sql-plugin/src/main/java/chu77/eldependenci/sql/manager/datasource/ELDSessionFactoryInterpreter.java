@@ -1,6 +1,6 @@
 package chu77.eldependenci.sql.manager.datasource;
 
-import chu77.eldependenci.sql.SQLAddon;
+import chu77.eldependenci.sql.bukkit.SQLAddon;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
 import org.hibernate.cfg.Environment;

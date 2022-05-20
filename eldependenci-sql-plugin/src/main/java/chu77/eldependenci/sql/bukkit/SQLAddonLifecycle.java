@@ -1,9 +1,9 @@
-package chu77.eldependenci.sql;
+package chu77.eldependenci.sql.bukkit;
 
-import com.ericlam.mc.eld.ELDLifeCycle;
+import com.ericlam.mc.eld.BukkitLifeCycle;
 import org.bukkit.plugin.java.JavaPlugin;
 
-public class SQLAddonLifecycle implements ELDLifeCycle {
+public class SQLAddonLifecycle implements BukkitLifeCycle {
 
     @Override
     public void onEnable(JavaPlugin javaPlugin) {

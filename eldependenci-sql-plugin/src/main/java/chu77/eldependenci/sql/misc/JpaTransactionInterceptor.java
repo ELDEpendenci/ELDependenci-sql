@@ -1,7 +1,7 @@
 package chu77.eldependenci.sql.misc;
 
 
-import chu77.eldependenci.sql.SQLAddon;
+import chu77.eldependenci.sql.bukkit.SQLAddon;
 import org.aopalliance.intercept.MethodInterceptor;
 import org.aopalliance.intercept.MethodInvocation;
 

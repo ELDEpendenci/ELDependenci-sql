@@ -1,6 +1,6 @@
 package chu77.eldependenci.sql.manager;
 
-import chu77.eldependenci.sql.SQLAddon;
+import chu77.eldependenci.sql.bukkit.SQLAddon;
 import chu77.eldependenci.sql.SQLService;
 import chu77.eldependenci.sql.config.Dbconfig;
 import chu77.eldependenci.sql.manager.datasource.ELDDataSourceFactory;
