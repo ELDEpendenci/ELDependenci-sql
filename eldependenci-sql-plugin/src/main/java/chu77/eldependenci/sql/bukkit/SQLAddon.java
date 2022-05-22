@@ -21,7 +21,7 @@ public class SQLAddon extends ELDBukkitPlugin {
 
     @Override
     protected void manageProvider(BukkitManagerProvider bukkitManagerProvider) {
-
+        saveResource("hibernate.properties");
     }
 }
 

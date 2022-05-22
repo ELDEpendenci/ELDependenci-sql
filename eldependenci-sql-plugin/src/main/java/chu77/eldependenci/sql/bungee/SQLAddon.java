@@ -14,7 +14,7 @@ public class SQLAddon extends ELDBungeePlugin {
 
     @Override
     protected void manageProvider(BungeeManageProvider bungeeManageProvider) {
-
+        saveResource("hibernate.properties");
     }
 
     @Override
