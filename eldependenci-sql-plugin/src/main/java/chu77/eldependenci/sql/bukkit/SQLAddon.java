@@ -7,6 +7,8 @@ import com.ericlam.mc.eld.ELDBukkit;
 import com.ericlam.mc.eld.ELDBukkitPlugin;
 import com.ericlam.mc.eld.ServiceCollection;
 
+import java.io.File;
+
 @ELDBukkit(
         lifeCycle = SQLAddonLifecycle.class,
         registry = SQLAddonRegistry.class
@@ -21,7 +23,8 @@ public class SQLAddon extends ELDBukkitPlugin {
 
     @Override
     protected void manageProvider(BukkitManagerProvider bukkitManagerProvider) {
-        saveResource("hibernate.properties");
+        File file = new File(getDataFolder(), "hibernate.properties");
+        if (!file.exists()) saveResource("hibernate.properties");
     }
 }
 
