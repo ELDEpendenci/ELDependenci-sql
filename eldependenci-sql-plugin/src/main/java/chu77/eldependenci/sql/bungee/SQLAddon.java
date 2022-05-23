@@ -19,6 +19,6 @@ public class SQLAddon extends ELDBungeePlugin {
 
     @Override
     public void bindServices(ServiceCollection serviceCollection) {
-        ServiceCollectionBinder.bind(serviceCollection);
+        ServiceCollectionBinder.bind(serviceCollection, this);
     }
 }

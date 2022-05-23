@@ -10,7 +10,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <artifactId>eldependenci-sql-plugin</artifactId>
-    <version>0.2.1-SNAPSHOST</version>
+    <version>0.2.2-SNAPSHOST</version>
 
     <dependencies>
         <dependency>

@@ -1,11 +1,12 @@
 package chu77.eldependenci.sql.misc;
 
 
-import chu77.eldependenci.sql.bukkit.SQLAddon;
+import com.ericlam.mc.eld.MCPlugin;
 import org.aopalliance.intercept.MethodInterceptor;
 import org.aopalliance.intercept.MethodInvocation;
 
 import javax.inject.Inject;
+import javax.inject.Named;
 import javax.inject.Provider;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityTransaction;
@@ -19,8 +20,9 @@ public class JpaTransactionInterceptor implements MethodInterceptor {
     @Inject
     private Provider<EntityManager> emProvider;
 
+    @Named("sql-addon")
     @Inject
-    private SQLAddon sqlAddon;
+    private MCPlugin sqlAddon;
 
    // private static final Logger LOGGER = LoggerFactory.getLogger(JpaTransactionInterceptor.class);
 

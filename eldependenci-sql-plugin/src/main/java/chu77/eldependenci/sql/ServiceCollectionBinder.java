@@ -9,13 +9,14 @@ import chu77.eldependenci.sql.manager.datasource.ELDDataSourceFactory;
 import chu77.eldependenci.sql.manager.datasource.MySQLDataSource;
 import chu77.eldependenci.sql.manager.datasource.SQLiteDataSource;
 import com.ericlam.mc.eld.AddonInstallation;
+import com.ericlam.mc.eld.MCPlugin;
 import com.ericlam.mc.eld.ServiceCollection;
 
 import java.util.Map;
 
 public class ServiceCollectionBinder {
 
-    public static void bind(ServiceCollection serviceCollection){
+    public static void bind(ServiceCollection serviceCollection, MCPlugin plugin){
         serviceCollection.addConfiguration(Dbconfig.class);
 
         serviceCollection.addServices(ELDDataSourceFactory.class, Map.of(
@@ -32,7 +33,7 @@ public class ServiceCollectionBinder {
         AddonInstallation addon = serviceCollection.getInstallation(AddonInstallation.class);
 
         addon.customInstallation(SQLInstallation.class, sqlInstaller);
-        addon.installModule(new JpaRepositoryModule(sqlInstaller));
+        addon.installModule(new JpaRepositoryModule(sqlInstaller, plugin));
 
     }
 }

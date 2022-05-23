@@ -15,7 +15,7 @@ public class SQLAddon extends ELDBukkitPlugin {
 
     @Override
     public void bindServices(ServiceCollection serviceCollection) {
-        ServiceCollectionBinder.bind(serviceCollection);
+        ServiceCollectionBinder.bind(serviceCollection, this);
     }
 
 
