@@ -1,1 +1,1 @@
-typeSearchIndex = [{"l":"All Classes","u":"allclasses-index.html"},{"p":"chu77.eldependenci.sql","l":"SQLInstallation"},{"p":"chu77.eldependenci.sql","l":"SQLService"}];updateSearchResults();
+typeSearchIndex = [{"l":"All Classes and Interfaces","u":"allclasses-index.html"},{"p":"chu77.eldependenci.sql","l":"SQLInstallation"},{"p":"chu77.eldependenci.sql","l":"SQLService"}];updateSearchResults();
