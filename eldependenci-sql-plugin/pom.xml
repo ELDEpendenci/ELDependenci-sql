@@ -10,9 +10,21 @@
     <modelVersion>4.0.0</modelVersion>
 
     <artifactId>eldependenci-sql-plugin</artifactId>
-    <version>${project.parent.version}</version>
+    <version>0.2.2-SNAPSHOST</version>
 
     <dependencies>
+        <dependency>
+            <groupId>org.eldependenci</groupId>
+            <artifactId>eldependenci-bungee</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>io.papermc.paper</groupId>
+            <artifactId>paper-api</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>io.github.waterfallmc</groupId>
+            <artifactId>waterfall-api</artifactId>
+        </dependency>
         <dependency>
             <groupId>org.eldependenci</groupId>
             <artifactId>eldependenci-sql</artifactId>
@@ -21,7 +33,7 @@
         </dependency>
         <dependency>
             <groupId>org.eldependenci</groupId>
-            <artifactId>eldependenci-framework</artifactId>
+            <artifactId>eldependenci-bukkit</artifactId>
         </dependency>
         <dependency>
             <groupId>org.eldependenci</groupId>

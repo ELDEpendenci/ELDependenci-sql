@@ -1,6 +1,5 @@
 package chu77.eldependenci.sql;
 
-import chu77.eldependenci.sql.config.Dbconfig;
 import com.google.common.collect.ImmutableMap;
 import com.google.common.collect.ImmutableSet;
 import org.hibernate.dialect.Dialect;

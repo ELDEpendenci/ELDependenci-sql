@@ -1,7 +1,5 @@
 env:
-  version: 0.0.5 # 你的版本名稱
   GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-  plugin_name: "eldependenci-sql-plugin"
 
 name: Publish Process
 
@@ -20,8 +18,8 @@ jobs:
         uses: actions/checkout@v2
       - uses: eric2788/maven-jar-publish@v2
         with:
-          java-version: 16
-          body: 版本更新請到[這裏](https://eric2788.gitbook.io/eldependenci-sql/references/update/v0.0.5)查看。
+          java-version: 18
+          body: 版本更新請到[這裏](https://eric2788.gitbook.io/eldependenci-sql/references/update/v0.0.6)查看。
           upload-module: './eldependenci-sql-plugin'
       - name: 'Update javadocs'
         id: update-javadoc
@@ -39,9 +37,9 @@ jobs:
       - uses: actions/checkout@v2
       - uses: actions/setup-java@v2
         with:
-          java-version: '16'
+          java-version: '18'
           distribution: 'adopt'
       - name: Publish package
-        run: mvn --batch-mode deploy
+        run: mvn --batch-mode clean deploy
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

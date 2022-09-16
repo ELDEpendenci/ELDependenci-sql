@@ -1,5 +1,5 @@
 name: ELDependenci-SQL
-main: chu77.eldependenci.sql.SQLAddon
+main: chu77.eldependenci.sql.bukkit.SQLAddon
 version: ${project.version}
 depend: [ELDependenci]
-api-version: "1.16"
+api-version: "1.18"

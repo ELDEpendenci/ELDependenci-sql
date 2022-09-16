@@ -1,12 +1,13 @@
 package chu77.eldependenci.sql.manager;
 
-import chu77.eldependenci.sql.SQLAddon;
 import chu77.eldependenci.sql.SQLService;
 import chu77.eldependenci.sql.config.Dbconfig;
 import chu77.eldependenci.sql.manager.datasource.ELDDataSourceFactory;
+import com.ericlam.mc.eld.MCPlugin;
 import org.hibernate.SessionFactory;
 
 import javax.inject.Inject;
+import javax.inject.Named;
 import javax.sql.DataSource;
 import java.sql.Connection;
 import java.sql.SQLException;
@@ -20,7 +21,7 @@ public final class SQLDataSourceManager implements SQLService {
     private final ELDDataSourceFactory dataSourceFactory;
 
     @Inject
-    public SQLDataSourceManager(Map<String, ELDDataSourceFactory> dbMap, Dbconfig db, SQLAddon sqlAddon) {
+    public SQLDataSourceManager(Map<String, ELDDataSourceFactory> dbMap, Dbconfig db, @Named("sql-addon") MCPlugin sqlAddon) {
         this.db = db;
         dataSourceFactory = Optional.ofNullable(dbMap.get(db.dataSource)).orElseThrow(() -> new IllegalStateException("Unknown DataSource: " + db.dataSource));
         if (db.enable) {
