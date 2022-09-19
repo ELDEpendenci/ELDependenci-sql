@@ -17,7 +17,7 @@
         <hibernate.version>5.5.5.Final</hibernate.version>
         <guice.version>5.0.1</guice.version>
         <maven.compiler.target>18</maven.compiler.target>
-        <eld.version>2.0.4-SNAPSHOT</eld.version>
+        <eld.version>2.0.1</eld.version>
     </properties>
 
 
