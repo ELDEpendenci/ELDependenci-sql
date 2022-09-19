@@ -24,10 +24,8 @@ public final class SQLDataSourceManager implements SQLService {
     public SQLDataSourceManager(Map<String, ELDDataSourceFactory> dbMap, Dbconfig db, @Named("sql-addon") MCPlugin sqlAddon) {
         this.db = db;
         dataSourceFactory = Optional.ofNullable(dbMap.get(db.dataSource)).orElseThrow(() -> new IllegalStateException("Unknown DataSource: " + db.dataSource));
-        if (db.enable) {
-            sqlAddon.getLogger().info("Initializing SQL....");
-            this.initialize();
-        }
+        sqlAddon.getLogger().info("Initializing SQL... (Using DataSource: " + db.dataSource + ")");
+        this.initialize();
     }
 
     public void initialize() {
@@ -36,22 +34,16 @@ public final class SQLDataSourceManager implements SQLService {
 
     @Override
     public Connection getConnection() throws SQLException {
-        validate();
         return dataSourceFactory.getDataSource().getConnection();
     }
 
     @Override
     public DataSource getDataSource() {
-        validate();
         return dataSourceFactory.getDataSource();
     }
 
     @Override
     public SessionFactory getSessionFactory() {
         return dataSourceFactory.getSessionFactory();
-    }
-
-    private void validate() {
-        if (!db.enable) throw new IllegalStateException("SQL is disabled, please enable it in db.yml");
     }
 }
