@@ -5,12 +5,12 @@
     <parent>
         <artifactId>eldependenci-sql-module</artifactId>
         <groupId>org.eldependenci</groupId>
-        <version>0.0.6</version>
+        <version>0.0.7</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
     <artifactId>eldependenci-sql-plugin</artifactId>
-    <version>0.2.2-SNAPSHOST</version>
+    <version>0.2.3-SNAPSHOST</version>
 
     <dependencies>
         <dependency>
