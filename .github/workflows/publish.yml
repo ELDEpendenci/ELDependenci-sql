@@ -16,7 +16,7 @@ jobs:
       - name: Checkout Source Code
         id: checkout-source
         uses: actions/checkout@v2
-      - uses: eric2788/maven-jar-publish@v2
+      - uses: eric2788/maven-jar-publish@v3
         with:
           java-version: 18
           body: 版本更新請到[這裏](https://eric2788.gitbook.io/eldependenci-sql/references/update/v0.0.6)查看。
